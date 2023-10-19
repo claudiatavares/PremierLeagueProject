@@ -1,0 +1,851 @@
+/*
+Information about the table:
+ - Exploring Premier League players' heights
+ - Height measured in centimetres (cm)
+ - Data values collected from Premier League website
+ - 'United States' classified as 'USA'
+ - Values added on 04/03/2023 for the teams: Arsenal, Manchester City, Manchester United, Tottenham Hotspur, Brighton & Hove Albion
+ - Values added on 05/03/2023 for the teams: Fulham, Liverpool, Aston Villa, Newcastle United, Chelsea, Brentford, Leicester City, Wolverhampton Wanderers, Crystal Palace, Nottingham Forest, Southampton
+ - Values added on 06/03/2023 for the teams: Southampton, West Ham United, Bournemouth, Everton, Leeds United
+ - Table updated on 27/06/2023 with Final_Classification
+*/
+
+CREATE TABLE PremierLeagueHeights2223 -- Create a table and columns
+(Name varchar(100),
+Nationality varchar(100),
+Team varchar(100),
+Position varchar(100),
+Height int
+)
+
+INSERT INTO PremierLeagueHeights2223 VALUES -- Add values to table
+('Aaron Ramsdale', 'England', 'Arsenal', 'Goalkeeper', 188),
+('Matt Turner', 'USA', 'Arsenal', 'Goalkeeper', 191),
+('Karl Hein', 'Estonia', 'Arsenal', 'Goalkeeper', 193),
+('Kieran Tierney', 'Scotland', 'Arsenal', 'Defender', 178),
+('Ben White', 'England', 'Arsenal', 'Defender', 186),
+('Gabriel Magalh�es', 'Brazil', 'Arsenal', 'Defender', 190),
+('Rob Holding', 'England', 'Arsenal', 'Defender', 189),
+('Takehiro Tomiyasu', 'Japan', 'Arsenal', 'Defender', 187),
+('William Saliba', 'France', 'Arsenal', 'Defender', 192),
+('Lino Sousa', 'England', 'Arsenal', 'Defender', 185),
+('Jakub Kiwior', 'Poland', 'Arsenal', 'Defender', 189),
+('Thomas Partey', 'Ghana', 'Arsenal', 'Midfielder', 185),
+('Bukayo Saka', 'England', 'Arsenal', 'Midfielder', 178),
+('Martin �degaard', 'Norway', 'Arsenal', 'Midfielder', 178),
+('Emile Smith Rowe', 'England', 'Arsenal', 'Midfielder', 182),
+('Mohamed Elneny', 'Egypt', 'Arsenal', 'Midfielder', 179),
+('Granit Xhaka', 'Switzerland', 'Arsenal', 'Midfielder', 186),
+('F�bio Vieira', 'Portugal', 'Arsenal', 'Midfielder', 170),
+('Oleksandr Zinchenko', 'Ukraine', 'Arsenal', 'Midfielder', 175),
+('Amario Cozier-Duberry', 'England', 'Arsenal', 'Midfielder', NULL),
+('Catalin Cirjan', 'Romania', 'Arsenal', 'Midfielder', 174),
+('Ethan Nwaneri', 'England', 'Arsenal', 'Midfielder', 165),
+('Bradley Ibrahim', 'England', 'Arsenal', 'Midfielder', NULL),
+('Matt Smith', 'England', 'Arsenal', 'Midfielder', 176),
+('Jorginho', 'Italy', 'Arsenal', 'Midfielder', 180),
+('Eddie Nketiah', 'England', 'Arsenal', 'Forward', 175),
+('Gabriel Martinelli', 'Brazil', 'Arsenal', 'Forward', 178),
+('Gabriel Jesus', 'Brazil', 'Arsenal', 'Forward', 175),
+('Reiss Nelson', 'England', 'Arsenal', 'Forward', 175),
+('Khayon Edwards', 'England', 'Arsenal', 'Forward', 180),
+('Leandro Trossard', 'Belgium', 'Arsenal', 'Forward', 172),
+('Ederson', 'Brazil', 'Manchester City', 'Goalkeeper', 188),
+('Scott Carson', 'England', 'Manchester City', 'Goalkeeper', 188),
+('Stefan Ortega', 'Germany', 'Manchester City', 'Goalkeeper', 185),
+('Kyle Walker', 'England', 'Manchester City', 'Defender', 178),
+('R�ben Dias', 'Portugal', 'Manchester City', 'Defender', 186),
+('John Stones', 'England', 'Manchester City', 'Defender', 188),
+('Nathan Ak�', 'Netherlands', 'Manchester City', 'Defender', 180),
+('Aymeric Laporte', 'Spain', 'Manchester City', 'Defender', 189),
+('Rico Lewis', 'England', 'Manchester City', 'Defender', NULL),
+('Manuel Akanji', 'Switzerland', 'Manchester City', 'Defender', 186),
+('Ilkay G�ndogan', 'Germany', 'Manchester City', 'Midfielder', 180),
+('Jack Grealish', 'England', 'Manchester City', 'Midfielder', 175),
+('Rodri', 'Spain', 'Manchester City', 'Midfielder', 190),
+('Kevin De Bruyne', 'Belgium', 'Manchester City', 'Midfielder', 181),
+('Bernardo Silva', 'Portugal', 'Manchester City', 'Midfielder', 173),
+('Phil Foden', 'England', 'Manchester City', 'Midfielder', 171),
+('Cole Palmer', 'England', 'Manchester City', 'Midfielder', 182),
+('Kalvin Phillips', 'England', 'Manchester City', 'Midfielder', 178),
+('Yangel Herrera', 'Venezuela', 'Manchester City', 'Midfielder', 184),
+('Sergio G�mez', 'Spain', 'Manchester City', 'Midfielder', 171),
+('Shea Charles', 'Northern Ireland', 'Manchester City', 'Midfielder', NULL),
+('Alex Robertson', 'England', 'Manchester City', 'Midfielder', NULL),
+('M�ximo Perrone', 'Argentina', 'Manchester City', 'Midfielder', 177),
+('Riyad Mahrez', 'Algeria', 'Manchester City', 'Forward', 179),
+('Erling Haaland', 'Norway', 'Manchester City', 'Forward', 194),
+('Juli�n �lvarez', 'Argentina', 'Manchester City', 'Forward', 170),
+('David de Gea', 'Spain', 'Manchester United', 'Goalkeeper', 192),
+('Tom Heaton', 'England', 'Manchester United', 'Goalkeeper', 188),
+('Nathan Bishop', 'England', 'Manchester United', 'Goalkeeper', 185),
+('Jack Butland', 'England', 'Manchester United', 'Goalkeeper', 196),
+('Victor Lindel�f', 'Sweden', 'Manchester United', 'Defender', 187),
+('Phil Jones', 'England', 'Manchester United', 'Defender', 180),
+('Harry Maguire', 'England', 'Manchester United', 'Defender', 194),
+('Rapha�l Varane', 'France', 'Manchester United', 'Defender', 191),
+('Diogo Dalot', 'Portugal', 'Manchester United', 'Defender', 183),
+('Luke Shaw', ' England', 'Manchester United', 'Defender', 185),
+('Aaron Wan-Bissaka', 'England', 'Manchester United', 'Defender', 183),
+('Tyrell Malacia', 'Netherlands', 'Manchester United', 'Defender', 170),
+('Lisandro Mart�nez', 'Argentina', 'Manchester United', 'Defender', 175),
+('Rhys Bennett', 'England', 'Manchester United', 'Defender', NULL),
+('Brandon Williams', 'England', 'Manchester United', 'Defender', 171),
+('Fred', 'Brazil', 'Manchester United', 'Midfielder', 169),
+('Bruno Fernandes', 'Portugal', 'Manchester United', 'Midfielder', 179),
+('Scott McTominay', 'Scotland', 'Manchester United', 'Midfielder', 193),
+('Facundo Pellistri', 'Uruguay', 'Manchester United', 'Midfielder', 175),
+('Donny van de Beek', 'Netherlands', 'Manchester United', 'Midfielder', 184),
+('Christian Eriksen', 'Denmark', 'Manchester United', 'Midfielder', 182),
+('Casemiro', 'Brazil', 'Manchester United', 'Midfielder', 185),
+('Zidane Iqbal', 'Iraq', 'Manchester United', 'Midfielder', NULL),
+('Kobbie Mainoo', 'England', 'Manchester United', 'Midfielder', NULL),
+('Marcel Sabitzer', 'Austria', 'Manchester United', 'Midfielder', 178),
+('Alejandro Garnacho', 'Argentina', 'Manchester United', 'Forward', 180),
+('Marcus Rashford', 'England', 'Manchester United', 'Forward', 180),
+('Jadon Sancho', 'England', 'Manchester United', 'Forward', 180),
+('Anthony Elanga', 'Sweden', 'Manchester United', 'Forward', 178),
+('Anthony Martial', 'France', 'Manchester United', 'Forward', 181),
+('Antony', 'Brazil', 'Manchester United', 'Forward', 174),
+('Wout Weghorst', 'Netherlands', 'Manchester United', 'Forward', 197),
+('Hugo Lloris', 'France', 'Tottenham Hotspur', 'Goalkeeper', 188),
+('Brandon Austin', 'England', 'Tottenham Hotspur', 'Goalkeeper', 188),
+('Fraser Forster', 'England', 'Tottenham Hotspur', 'Goalkeeper', 201),
+('Alfie Whiteman', 'England', 'Tottenham Hotspur', 'Goalkeeper', 189),
+('Cristian Romero', 'Argentina', 'Tottenham Hotspur', 'Defender', 185),
+('Davinson S�nchez', 'Colombia', 'Tottenham Hotspur', 'Defender', 187),
+('Emerson Royal', 'Brazil', 'Tottenham Hotspur', 'Defender', 181),
+('Eric Dier', 'England', 'Tottenham Hotspur', 'Defender', 188),
+('Japhet Tanganga', 'England', 'Tottenham Hotspur', 'Defender', 184),
+('Ben Davies', 'Wales', 'Tottenham Hotspur', 'Defender', 181),
+('Cl�ment Lenglet', 'France', 'Tottenham Hotspur', 'Defender', 186),
+('Charlie Sayers', 'England', 'Tottenham Hotspur', 'Defender', NULL),
+('Marqes Muir', 'England', 'Tottenham Hotspur', 'Defender', NULL),
+('Malachi Fagan-Walcott', 'England', 'Tottenham Hotspur', 'Defender', NULL),
+('Maksim Paskotsi', 'Estonia', 'Tottenham Hotspur', 'Defender', NULL),
+('Alfie Dorrington', 'England', 'Tottenham Hotspur', 'Defender', NULL),
+('Kallum Cesay', 'Sierra Leone', 'Tottenham Hotspur', 'Defender', NULL),
+('Pedro Porro', 'Spain', 'Tottenham Hotspur', 'Defender', 173),
+('Pierre-Emile H�jbjerg', 'Denmark', 'Tottenham Hotspur', 'Midfielder', 187),
+('Ryan Sessegnon', 'England', 'Tottenham Hotspur', 'Midfielder', 178),
+('Dejan Kulusevski', 'Sweden', 'Tottenham Hotspur', 'Midfielder', 186),
+('Oliver Skipp', 'England', 'Tottenham Hotspur', 'Midfielder', 175),
+('Rodrigo Bentancur', 'Uruguay', 'Tottenham Hotspur', 'Midfielder', 187),
+('Ivan Perisic', 'Croatia', 'Tottenham Hotspur', 'Midfielder', 186),
+('Yves Bissouma', 'Mali', 'Tottenham Hotspur', 'Midfielder', 182),
+('Pape Sarr', 'Senegal', 'Tottenham Hotspur', 'Midfielder', 185),
+('Nile John', 'England', 'Tottenham Hotspur', 'Midfielder', NULL),
+('Alfie Devine', 'England', 'Tottenham Hotspur', 'Midfielder', 179),
+('Romaine Mundle', 'England', 'Tottenham Hotspur', 'Midfielder', NULL),
+('Max Robson', 'England', 'Tottenham Hotspur', 'Midfielder', NULL),
+('Arnaut Danjuma', 'Netherlands', 'Tottenham Hotspur', 'Midfielder', 178),
+('Son Heung-Min', 'South Korea', 'Tottenham Hotspur', 'Forward', 184),
+('Harry Kane', 'England', 'Tottenham Hotspur', 'Forward', 188),
+('Lucas Moura', 'Brazil', 'Tottenham Hotspur', 'Forward', 172),
+('Richarlison', 'Brazil', 'Tottenham Hotspur', 'Forward', 184),
+('Yago Alonso', 'Spain', 'Tottenham Hotspur', 'Forward', NULL),
+('Will Lankshear', 'England', 'Tottenham Hotspur', 'Forward', NULL),
+('Jamie Donley', 'England', 'Tottenham Hotspur', 'Forward', NULL),
+('Robert S�nchez', 'Spain', 'Brighton and Hove Albion', 'Goalkeeper', 197),
+('Jason Steele', 'England', 'Brighton and Hove Albion', 'Goalkeeper', 188),
+('Thomas McGill', 'England', 'Brighton and Hove Albion', 'Goalkeeper', 185),
+('Carl Rushworth', 'England', 'Brighton and Hove Albion', 'Goalkeeper', NULL),
+('Tariq Lamptey', 'Ghana', 'Brighton and Hove Albion', 'Defender', 163),
+('Adam Webster', 'England', 'Brighton and Hove Albion', 'Defender', 191),
+('Lewis Dunk', 'England', 'Brighton and Hove Albion', 'Defender', 192),
+('Jo�l Veltman', 'Netherlands', 'Brighton and Hove Albion', 'Defender', 184),
+('Matt Clarke', 'England', 'Brighton and Hove Albion', 'Defender', 185),
+('Jan Paul van Hecke', 'Netherlands', 'Brighton and Hove Albion', 'Defender', 189),
+('Sam Packham', 'England', 'Brighton and Hove Albion', 'Defender', NULL),
+('Levi Colwill', 'England', 'Brighton and Hove Albion', 'Defender', 187),
+('Pervis Estupi��n', 'Ecuador', 'Brighton and Hove Albion', 'Defender', 175),
+('Odeluga Offiah', 'England', 'Brighton and Hove Albion', 'Defender', NULL),
+('Alexis Mac Allister', 'Argentina', 'Brighton and Hove Albion', 'Midfielder', 176),
+('Pascal Gro�', 'Germany', 'Brighton and Hove Albion', 'Midfielder', 181),
+('Adam Lallana', 'England', 'Brighton and Hove Albion', 'Midfielder', 172),
+('Jakub Moder', 'Poland', 'Brighton and Hove Albion', 'Midfielder', 188),
+('Solly March', 'England', 'Brighton and Hove Albion', 'Midfielder', 180),
+('Mois�s Caicedo', 'Ecuador', 'Brighton and Hove Albion', 'Midfielder', 178),
+('Kaoru Mitoma', 'Japan', 'Brighton and Hove Albion', 'Midfielder', 178),
+('Taylor Richards', 'England', 'Brighton and Hove Albion', 'Midfielder', 180),
+('Jensen Weir', 'England', 'Brighton and Hove Albion', 'Midfielder', 184),
+('Jack Hinchy', 'England', 'Brighton and Hove Albion', 'Midfielder', NULL),
+('Cameron Peupion', 'Australia', 'Brighton and Hove Albion', 'Midfielder', 175),
+('Andrew Moran', 'Ireland', 'Brighton and Hove Albion', 'Midfielder', NULL),
+('Billy Gilmour', 'Scotland', 'Brighton and Hove Albion', 'Midfielder', 166),
+('Jack Hinshelwood', 'England', 'Brighton and Hove Albion', 'Midfielder', NULL),
+('Facundo Buonanotte', 'Argentina', 'Brighton and Hove Albion', 'Midfielder', 176),
+('Yasin Ayari', 'Sweden', 'Brighton and Hove Albion', 'Midfielder', 172),
+('Danny Welbeck', ' England', 'Brighton and Hove Albion', 'Forward', 185),
+('Jeremy Sarmiento', 'Ecuador', 'Brighton and Hove Albion', 'Forward', 178),
+('Julio Enciso', 'Paraguay', 'Brighton and Hove Albion', 'Forward', 168),
+('Deniz Undav', 'Germany', 'Brighton and Hove Albion', 'Forward', 179),
+('Lorent Tolaj', 'Switzerland', 'Brighton and Hove Albion', 'Forward', NULL),
+('Evan Ferguson', ' Ireland', 'Brighton and Hove Albion', 'Forward', 183)
+
+INSERT INTO PremierLeagueHeights2223 VALUES -- Add additional values to table
+('Marek Rod�k', 'Slovakia', 'Fulham', 'Goalkeeper', 194),
+('Bernd Leno', 'Germany', 'Fulham', 'Goalkeeper', 189),
+('Kenny Tete', 'Netherlands', 'Fulham', 'Defender', 180),
+('Tim Ream', 'USA', 'Fulham', 'Defender', 183),
+('Tosin Adarabioyo', 'England', 'Fulham', 'Defender', 196),
+('Antonee Robinson', 'USA', 'Fulham', 'Defender', 183),
+('Shane Duffy', 'Ireland', 'Fulham', 'Defender', 193),
+('Issa Diop', 'France', 'Fulham', 'Defender', 194),
+('Luciano D�Auria-Henry', 'England', 'Fulham', 'Defender', NULL),
+('Charlie Robinson', 'England', 'Fulham', 'Defender', NULL),
+('Layvin Kurzawa', 'France', 'Fulham', 'Defender', 182),
+('Stefan Parkes', 'England', 'Fulham', 'Defender', NULL),
+('C�dric Soares', 'Portugal', 'Fulham', 'Defender', 172),
+('Harrison Reed', 'England', 'Fulham', 'Midfielder', 181),
+('Neeskens Kebano', 'DR Congo', 'Fulham', 'Midfielder', 170),
+('Harry Wilson', 'Wales', 'Fulham', 'Midfielder', 173),
+('Tom Cairney', 'Scotland', 'Fulham', 'Midfielder', 186),
+('Jo�o Palhinha', 'Portugal', 'Fulham', 'Midfielder', 190),
+('Andreas Pereira', 'Brazil', 'Fulham', 'Midfielder', 178),
+('Luke Harris', 'Wales', 'Fulham', 'Midfielder', NULL),
+('Kristian Sekularac', 'Switzerland', 'Fulham', 'Midfielder', NULL),
+('Dan James', 'Wales', 'Fulham', 'Midfielder', 171),
+('Sasa Lukic', 'Serbia', 'Fulham', 'Midfielder', 183),
+('Tyrese Francois', 'Australia', 'Fulham', 'Midfielder', 166),
+('Aleksandar Mitrovic', 'Serbia', 'Fulham', 'Forward', 189),
+('Bobby De Cordova-Reid', 'Jamaica', 'Fulham', 'Forward', 170),
+('Manor Solomon', 'Israel', 'Fulham', 'Forward', 170),
+('Terry Ablade', 'Finland', 'Fulham', 'Forward', NULL),
+('Martial Godo', 'England', 'Fulham', 'Forward', NULL),
+('Willian', 'Brazil', 'Fulham', 'Forward', 174),
+('Carlos Vin�cius', 'Brazil', 'Fulham', 'Forward', 190),
+('Callum McFarlane', 'England', 'Fulham', 'Forward', NULL),
+('Alisson', 'Brazil', 'Liverpool', 'Goalkeeper', 193),
+('Adri�n', 'Spain', 'Liverpool', 'Goalkeeper', 190),
+('Caoimh�n Kelleher', 'Ireland', 'Liverpool', 'Goalkeeper', 178),
+('Harvey Davies', 'England', 'Liverpool', 'Goalkeeper', NULL),
+('Virgil van Dijk', 'Netherlands', 'Liverpool', 'Defender', 195),
+('Ibrahima Konat�', 'France', 'Liverpool', 'Defender', 194),
+('Joe Gomez', 'England', 'Liverpool', 'Defender', 188),
+('Konstantinos Tsimikas', 'Greece', 'Liverpool', 'Defender', 178),
+('Andrew Robertson', 'Scotland', 'Liverpool', 'Defender', 178),
+('Jo�l Matip', 'Cameroon', 'Liverpool', 'Defender', 195),
+('Trent Alexander-Arnold', 'England', 'Liverpool', 'Defender', 175),
+('Calvin Ramsay', 'Scotland', 'Liverpool', 'Defender', NULL),
+('Nathaniel Phillips', 'England', 'Liverpool', 'Defender', 190),
+('Stefan Bajcetic', 'Spain', 'Liverpool', 'Defender', NULL),
+('Rhys Williams', 'England', 'Liverpool', 'Defender', 195),
+('Fabinho', 'Brazil', 'Liverpool', 'Midfielder', 188),
+('Thiago', 'Spain', 'Liverpool', 'Midfielder', 174),
+('James Milner', 'England', 'Liverpool', 'Midfielder', 175),
+('Naby Ke�ta', 'Guinea', 'Liverpool', 'Midfielder', 172),
+('Jordan Henderson', 'England', 'Liverpool', 'Midfielder', 182),
+('Alex Oxlade-Chamberlain', 'England', 'Liverpool', 'Midfielder', 180),
+('Curtis Jones', 'England', 'Liverpool', 'Midfielder', 185),
+('Harvey Elliott', 'England', 'Liverpool', 'Midfielder', 170),
+('F�bio Carvalho', 'Portugal', 'Liverpool', 'Midfielder', NULL),
+('Bobby Clark', 'England', 'Liverpool', 'Midfielder', NULL),
+('Arthur', 'Brazil', 'Liverpool', 'Midfielder', 171),
+('Roberto Firmino', 'Brazil', 'Liverpool', 'Forward', 181),
+('Mohamed Salah', 'Egypt', 'Liverpool', 'Forward', 175),
+('Diogo Jota', 'Portugal', 'Liverpool', 'Forward', 178),
+('Luis D�az', 'Colombia', 'Liverpool', 'Forward', 178),
+('Darwin N��ez', 'Uruguay', 'Liverpool', 'Forward', 187),
+('Melkamu Frauendorf', 'Germany', 'Liverpool', 'Forward', NULL),
+('Ben Doak', 'Scotland', 'Liverpool', 'Forward', NULL),
+('Layton Stewart', 'England', 'Liverpool', 'Forward', NULL),
+('Cody Gakpo', 'Netherlands', 'Liverpool', 'Forward', 193),
+('Emiliano Mart�nez', 'Argentina', 'Aston Villa', 'Goalkeeper', 195),
+('Viljami Sinisalo', 'Finland', 'Aston Villa', 'Goalkeeper', 190),
+('Robin Olsen', 'Sweden', 'Aston Villa', 'Goalkeeper', 198),
+('Oliwier Zych', 'Poland', 'Aston Villa', 'Goalkeeper', 193),
+('Matty Cash', 'Poland', 'Aston Villa', 'Defender', 185),
+('Ezri Konsa', 'England', 'Aston Villa', 'Defender', 183),
+('Tyrone Mings', 'England', 'Aston Villa', 'Defender', 196),
+('Calum Chambers', 'England', 'Aston Villa', 'Defender', 182),
+('Ashley Young', 'England', 'Aston Villa', 'Defender', 175),
+('Lucas Digne', 'France', 'Aston Villa', 'Defender', 178),
+('Diego Carlos', 'Brazil', 'Aston Villa', 'Defender', 186),
+('�lex Moreno', 'Spain', 'Aston Villa', 'Defender', 179),
+('Sebastian Revan', 'England', 'Aston Villa', 'Defender', 181),
+('Sil Swinkels', 'Netherlands', 'Aston Villa', 'Defender', 190),
+('Douglas Luiz', 'Brazil', 'Aston Villa', 'Midfielder', 175),
+('John McGinn', 'Scotland', 'Aston Villa', 'Midfielder', 178),
+('Emiliano Buend�a', 'Argentina', 'Aston Villa', 'Midfielder', 172),
+('Jacob Ramsey', 'England', 'Aston Villa', 'Midfielder', 180),
+('Boubacar Kamara', 'France', 'Aston Villa', 'Midfielder', 184),
+('Philippe Coutinho', 'Brazil', 'Aston Villa', 'Midfielder', 172),
+('Leander Dendoncker', 'Belgium', 'Aston Villa', 'Midfielder', 188),
+('Kadan Young', 'England', 'Aston Villa', 'Midfielder', 176),
+('Ollie Watkins', 'England', 'Aston Villa', 'Forward', 180),
+('Bertrand Traor�', 'Burkina Faso', 'Aston Villa', 'Forward', 181),
+('Leon Bailey', 'Jamaica', 'Aston Villa', 'Forward', 178),
+('Jhon Dur�n', 'Colombia', 'Aston Villa', 'Forward', 185),
+('Martin D�bravka', 'Slovakia', 'Newcastle United', 'Goalkeeper', 190),
+('Mark Gillespie', 'England', 'Newcastle United', 'Goalkeeper', 192),
+('Nick Pope', 'England', 'Newcastle United', 'Goalkeeper', 191),
+('Loris Karius', 'Germany', 'Newcastle United', 'Goalkeeper', 189),
+('Paul Dummett', 'Wales', 'Newcastle United', 'Defender', 183),
+('Fabian Sch�r', 'Switzerland', 'Newcastle United', 'Defender', 186),
+('Jamaal Lascelles', 'England', 'Newcastle United', 'Defender', 188),
+('Jamal Lewis', 'Northern Ireland', 'Newcastle United', 'Defender', 178),
+('Kieran Trippier', 'England', 'Newcastle United', 'Defender', 178),
+('Emil Krafth', 'Sweden', 'Newcastle United', 'Defender', 184),
+('Javier Manquillo', 'Spain', 'Newcastle United', 'Defender', 178),
+('Dan Burn', 'England', 'Newcastle United', 'Defender', 198),
+('Sven Botman', 'Netherlands', 'Newcastle United', 'Defender', 193),
+('Matt Targett', 'England', 'Newcastle United', 'Defender', 183),
+('Harrison Ashby', 'Scotland', 'Newcastle United', 'Defender', NULL),
+('Matt Ritchie', ' Scotland', 'Newcastle United', 'Midfielder', 172),
+('Ryan Fraser', 'Scotland', 'Newcastle United', 'Midfielder', 163),
+('Jacob Murphy', 'England', 'Newcastle United', 'Midfielder', 179),
+('Miguel Almir�n', 'Paraguay', 'Newcastle United', 'Midfielder', 174),
+('Joe Willock', 'England', 'Newcastle United', 'Midfielder', 179),
+('Sean Longstaff', 'England', 'Newcastle United', 'Midfielder', 180),
+('Bruno Guimar�es', 'Brazil', 'Newcastle United', 'Midfielder', 182),
+('Elliot Anderson', 'Scotland', 'Newcastle United', 'Midfielder', 179),
+('Matty Longstaff', 'England', 'Newcastle United', 'Midfielder', NULL),
+('Lewis Miley', 'England', 'Newcastle United', 'Midfielder', NULL),
+('Joelinton', 'Brazil', 'Newcastle United', 'Forward', 186),
+('Callum Wilson', 'England', 'Newcastle United', 'Forward', 180),
+('Allan Saint-Maximin', 'France', 'Newcastle United', 'Forward', 173),
+('Alexander Isak', 'Sweden', 'Newcastle United', 'Forward', 192),
+('Anthony Gordon', 'England', 'Newcastle United', 'Forward', 183),
+('Kepa Arrizabalaga', 'Spain', 'Chelsea', 'Goalkeeper', 189),
+('�douard Mendy', 'Senegal', 'Chelsea', 'Goalkeeper', 194),
+('Gabriel Slonina', 'USA', 'Chelsea', 'Goalkeeper', 193),
+('Marcus Bettinelli', 'England', 'Chelsea', 'Goalkeeper', 194),
+('Lucas Bergstr�m', 'Finland', 'Chelsea', 'Goalkeeper', 199),
+('Thiago Silva', 'Brazil', 'Chelsea', 'Defender', 183),
+('Reece James', 'England', 'Chelsea', 'Defender', 182),
+('C�sar Azpilicueta', 'Spain', 'Chelsea', 'Defender', 178),
+('Kalidou Koulibaly', 'Senegal', 'Chelsea', 'Defender', 195),
+('Marc Cucurella', 'Spain', 'Chelsea', 'Defender', 172),
+('Ben Chilwell', 'England', 'Chelsea', 'Defender', 178),
+('Wesley Fofana', 'France', 'Chelsea', 'Defender', 190),
+('Trevoh Chalobah', 'England', 'Chelsea', 'Defender', 190),
+('Beno�t Badiashile', 'France', 'Chelsea', 'Defender', 194),
+('N�Golo Kant�', 'France', 'Chelsea', 'Midfielder', 168),
+('Mateo Kovacic', 'Croatia', 'Chelsea', 'Midfielder', 177),
+('Christian Pulisic', 'USA', 'Chelsea', 'Midfielder', 179),
+('Ruben Loftus-Cheek', 'England', 'Chelsea', 'Midfielder', 191),
+('Mason Mount', 'England', 'Chelsea', 'Midfielder', 181),
+('Hakim Ziyech', 'Morocco', 'Chelsea', 'Midfielder', 180),
+('Kai Havertz', 'Germany', 'Chelsea', 'Midfielder', 193),
+('Conor Gallagher', 'England', 'Chelsea', 'Midfielder', 182),
+('Harvey Vale', 'England', 'Chelsea', 'Midfielder', 181),
+('Carney Chukwuemeka', 'England', 'Chelsea', 'Midfielder', 187),
+('Denis Zakaria', 'Switzerland', 'Chelsea', 'Midfielder', 189),
+('Omari Hutchinson', 'Jamaica', 'Chelsea', 'Midfielder', 174),
+('Lewis Hall', 'England', 'Chelsea', 'Midfielder', 179),
+('Andrey Santos', 'Brazil', 'Chelsea', 'Midfielder', 178),
+('Mykhailo Mudryk', 'Ukraine', 'Chelsea', 'Midfielder', 175),
+('Enzo Fern�ndez', 'Argentina', 'Chelsea', 'Midfielder', 178),
+('Armando Broja', 'Albania', 'Chelsea', 'Forward', 191),
+('Raheem Sterling', 'England', 'Chelsea', 'Forward', 172),
+('Pierre-Emerick Aubameyang', 'Gabon', 'Chelsea', 'Forward', 187),
+('David Datro Fofana', 'Cote D�Ivoire', 'Chelsea', 'Forward', 181),
+('Jo�o F�lix', 'Portugal', 'Chelsea', 'Forward', 181),
+('Noni Madueke', 'England', 'Chelsea', 'Forward', 176),
+('David Raya', 'Spain', 'Brentford', 'Goalkeeper', 183),
+('Matthew Cox', 'England', 'Brentford', 'Goalkeeper', 182),
+('Thomas Strakosha', 'Albania', 'Brentford', 'Goalkeeper', 186),
+('Rico Henry', 'England', 'Brentford', 'Defender', 170),
+('Ethan Pinnock', 'Jamaica', 'Brentford', 'Defender', 187),
+('Pontus Jansson', 'Sweden', 'Brentford', 'Defender', 194),
+('Kristoffer Ajer', 'Norway', 'Brentford', 'Defender', 198),
+('Zanka', 'Denmark', 'Brentford', 'Defender', 191),
+('Mads Roerslev', 'Denmark', 'Brentford', 'Defender', 184),
+('Aaron Hickey', 'Scotland', 'Brentford', 'Defender', 178),
+('Ben Mee', 'England', 'Brentford', 'Defender', 180),
+('Tristan Crama', 'France', 'Brentford', 'Defender', 192),
+('Finley Stevens', 'Wales', 'Brentford', 'Defender', NULL),
+('Christian N�rgaard', 'Denmark', 'Brentford', 'Midfielder', 187),
+('Mathias Jensen', 'Denmark', 'Brentford', 'Midfielder', 180),
+('Josh Dasilva', 'England', 'Brentford', 'Midfielder', 184),
+('Yoane Wissa', 'DR Congo', 'Brentford', 'Midfielder', 176),
+('Frank Onyeka', 'Nigeria', 'Brentford', 'Midfielder', 183),
+('Bryan Mbeumo', 'Cameroon', 'Brentford', 'Midfielder', 173),
+('Shandon Baptiste', 'Grenada', 'Brentford', 'Midfielder', 175),
+('Vitaly Janelt', 'Germany', 'Brentford', 'Midfielder', 184),
+('Mikkel Damsgaard', 'Denmark', 'Brentford', 'Midfielder', 180),
+('Ryan Trevitt', 'England', 'Brentford', 'Midfielder', NULL),
+('Yegor Yarmolyuk', 'Ukraine', 'Brentford', 'Midfielder', NULL),
+('Ehor Yarmolyuk', 'Ukraine', 'Brentford', 'Midfielder', NULL),
+('Kevin Schade', 'Germany', 'Brentford', 'Midfielder', 183),
+('Saman Ghoddos', 'Iran', 'Brentford', 'Forward', 176),
+('Ivan Toney', 'England', 'Brentford', 'Forward', 179),
+('Nathan Young-Coombes', 'England', 'Brentford', 'Forward', NULL),
+('Keane Lewis-Potter', 'England', 'Brentford', 'Forward', 170),
+('Alex Gilbert', 'Ireland', 'Brentford', 'Forward', NULL),
+('Danny Ward', 'Wales', 'Leicester City', 'Goalkeeper', 191),
+('Daniel Iversen', 'Denmark', 'Leicester City', 'Goalkeeper', 193),
+('Alex Smithies', 'England', 'Leicester City', 'Goalkeeper', 185),
+('James Justin', 'England', 'Leicester City', 'Defender', 183),
+('�aglar S�y�nc�', 'Turkey', 'Leicester City', 'Defender', 185),
+('Ryan Bertrand', 'England', 'Leicester City', 'Defender', 179),
+('Jonny Evans', 'Northern Ireland', 'Leicester City', 'Defender', 188),
+('Daniel Amartey', 'Ghana', 'Leicester City', 'Defender', 186),
+('Ricardo Pereira', 'Portugal', 'Leicester City', 'Defender', 175),
+('Jannik Vestergaard', 'Denmark', 'Leicester City', 'Defender', 199),
+('Timothy Castagne', 'Belgium', 'Leicester City', 'Defender', 185),
+('Luke Thomas', 'England', 'Leicester City', 'Defender', NULL),
+('Wout Faes', 'Belgium', 'Leicester City', 'Defender', 187),
+('Joe Wormleighton', 'England', 'Leicester City', 'Defender', NULL),
+('Victor Kristiansen', 'Denmark', 'Leicester City', 'Defender', 181),
+('Harry Souttar', 'Australia', 'Leicester City', 'Defender', 198),
+('Harvey Barnes', 'England', 'Leicester City', 'Midfielder', 174),
+('Youri Tielemans', 'Belgium', 'Leicester City', 'Midfielder', 176),
+('James Maddison', 'England', 'Leicester City', 'Midfielder', 175),
+('Kiernan Dewsbury-Hall', 'England', 'Leicester City', 'Midfielder', NULL),
+('Wilfred Ndidi', 'Nigeria', 'Leicester City', 'Midfielder', 183),
+('Boubakary Soumar�', 'France', 'Leicester City', 'Midfielder', 188),
+('Wanya Mar�al-Madivadua', 'Portugal', 'Leicester City', 'Midfielder', NULL),
+('Dennis Praet', 'Belgium', 'Leicester City', 'Midfielder', 181),
+('Nampalys Mendy', 'Senegal', 'Leicester City', 'Midfielder', 167),
+('Lewis Brunt', 'England', 'Leicester City', 'Midfielder', NULL),
+('Sammy Braybrooke', 'England', 'Leicester City', 'Midfielder', NULL),
+('Jamie Vardy', 'England', 'Leicester City', 'Forward', 179),
+('Kelechi Iheanacho', 'Nigeria', 'Leicester City', 'Forward', 185),
+('Patson Daka', 'Zambia', 'Leicester City', 'Forward', 183),
+('William Alves', 'England', 'Leicester City', 'Forward', NULL),
+('Tet�', 'Brazil', 'Leicester City', 'Forward', 175),
+('Jos� S�', 'Portugal', 'Wolverhampton Wanderers', 'Goalkeeper', 192),
+('Louie Moulden', 'England', 'Wolverhampton Wanderers', 'Goalkeeper', NULL),
+('Daniel Bentley', 'England', 'Wolverhampton Wanderers', 'Goalkeeper', 193),
+('Rayan A�t-Nouri', 'France', 'Wolverhampton Wanderers', 'Defender', 179),
+('Jonny', 'Spain', 'Wolverhampton Wanderers', 'Defender', 175),
+('N�lson Semedo', 'Portugal', 'Wolverhampton Wanderers', 'Defender', 177),
+('Maximilian Kilman', 'England', 'Wolverhampton Wanderers', 'Defender', NULL),
+('Toti', 'Portugal', 'Wolverhampton Wanderers', 'Defender', 187),
+('Nathan Collins', 'Ireland', 'Wolverhampton Wanderers', 'Defender', 193),
+('Hugo Bueno', 'Spain', 'Wolverhampton Wanderers', 'Defender', 180),
+('Dexter Lembikisa', 'Jamaica', 'Wolverhampton Wanderers', 'Defender', NULL),
+('Craig Dawson', 'England', 'Wolverhampton Wanderers', 'Defender', 188),
+('Lewis Richards', 'Ireland', 'Wolverhampton Wanderers', 'Defender', 182),
+('R�ben Neves', 'Portugal', 'Wolverhampton Wanderers', 'Midfielder', 180),
+('Daniel Podence', 'Portugal', 'Wolverhampton Wanderers', 'Midfielder', 165),
+('Jo�o Moutinho', 'Portugal', 'Wolverhampton Wanderers', 'Midfielder', 170),
+('Joseph Hodge', 'Ireland', 'Wolverhampton Wanderers', 'Midfielder', 172),
+('Matheus Nunes', 'Portugal', 'Wolverhampton Wanderers', 'Midfielder', 184),
+('Boubacar Traor�', 'Mali', 'Wolverhampton Wanderers', 'Midfielder', 183),
+('Harvey Griffiths', 'England', 'Wolverhampton Wanderers', 'Midfielder', NULL),
+('Mario Lemina', 'Gabon', 'Wolverhampton Wanderers', 'Midfielder', 184),
+('Pablo Sarabia', 'Spain', 'Wolverhampton Wanderers', 'Midfielder', 174),
+('Jo�o Gomes', 'Brazil', 'Wolverhampton Wanderers', 'Midfielder', 173),
+('Pedro Neto', 'Portugal', 'Wolverhampton Wanderers', 'Forward', 172),
+('Ra�l Jim�nez', 'Mexico', 'Wolverhampton Wanderers', 'Forward', 190),
+('Chiquinho', 'Portugal', 'Wolverhampton Wanderers', 'Forward', 179),
+('Adama Traor�', 'Spain', 'Wolverhampton Wanderers', 'Forward', 178),
+('Hwang Hee-Chan', 'South Korea', 'Wolverhampton Wanderers', 'Forward', 177),
+('Sasa Kalajdzic', 'Austria', 'Wolverhampton Wanderers', 'Forward', 200),
+('Diego Costa', 'Spain', 'Wolverhampton Wanderers', 'Forward', 188),
+('Nathan Fraser', 'Ireland', 'Wolverhampton Wanderers', 'Forward', NULL),
+('Matheus Cunha', 'Brazil', 'Wolverhampton Wanderers', 'Forward', 184),
+('Vicente Guaita', 'Spain', 'Crystal Palace', 'Goalkeeper', 190),
+('Sam Johnstone', 'England', 'Crystal Palace', 'Goalkeeper', 193),
+('Joe Whitworth', 'England', 'Crystal Palace', 'Goalkeeper', NULL),
+('Owen Goodman', 'England', 'Crystal Palace', 'Goalkeeper', NULL),
+('Joel Ward', 'England', 'Crystal Palace', 'Defender', 188),
+('Tyrick Mitchell', 'England', 'Crystal Palace', 'Defender', 175),
+('James Tomkins', 'England', 'Crystal Palace', 'Defender', 192),
+('Marc Gu�hi', 'England', 'Crystal Palace', 'Defender', 182),
+('Joachim Andersen', 'Denmark', 'Crystal Palace', 'Defender', 192),
+('Nathaniel Clyne', 'England', 'Crystal Palace', 'Defender', 175),
+('Nathan Ferguson', 'England', 'Crystal Palace', 'Defender', 178),
+('Jairo Riedewald', 'Netherlands', 'Crystal Palace', 'Defender', 182),
+('Chris Richards', 'USA', 'Crystal Palace', 'Defender', 188),
+('Luka Milivojevic', 'Serbia', 'Crystal Palace', 'Midfielder', 186),
+('Michael Olise', 'France', 'Crystal Palace', 'Midfielder', 184),
+('Will Hughes', 'England', 'Crystal Palace', 'Midfielder', 185),
+('Jeffrey Schlupp', 'Ghana', 'Crystal Palace', 'Midfielder', 178),
+('James McArthur', 'Scotland', 'Crystal Palace', 'Midfielder', 178),
+('Cheick Oumar Doucour�', 'Mali', 'Crystal Palace', 'Midfielder', 180),
+('Eberechi Eze', 'England', 'Crystal Palace', 'Midfielder', 178),
+('Jack Wells-Morrison', 'England', 'Crystal Palace', 'Midfielder', NULL),
+('Kaden Rodney', 'England', 'Crystal Palace', 'Midfielder', NULL),
+('Kofi Balmer', 'Northern Ireland', 'Crystal Palace', 'Midfielder', 183),
+('David Ozoh', 'England', 'Crystal Palace', 'Midfielder', NULL),
+('Naouirou Ahamada', 'France', 'Crystal Palace', 'Midfielder', 183),
+('Albert Sambi Lokonga', 'Belgium', 'Crystal Palace', 'Midfielder', 173),
+('Jordan Ayew', 'Ghana', 'Crystal Palace', 'Forward', 182),
+('Wilfried Zaha', 'Cote D�Ivoire', 'Crystal Palace', 'Forward', 180),
+('Jean-Philippe Mateta', 'France', 'Crystal Palace', 'Forward', 192),
+('Odsonne �douard', 'France', 'Crystal Palace', 'Forward', 187),
+('Adler Nascimento', 'Portugal', 'Crystal Palace', 'Forward', NULL),
+('Dean Henderson', 'England', 'Nottingham Forest', 'Goalkeeper', 188),
+('Wayne Hennessey', 'Wales', 'Nottingham Forest', 'Goalkeeper', 198),
+('Keehan Willows', 'England', 'Nottingham Forest', 'Goalkeeper', NULL),
+('Keylor Navas', 'Costa Rica', 'Nottingham Forest', 'Goalkeeper', 185),
+('George Shelvey', 'England', 'Nottingham Forest', 'Goalkeeper', NULL),
+('Joe Worrall', 'England', 'Nottingham Forest', 'Defender', 190),
+('Scott McKenna', 'Scotland', 'Nottingham Forest', 'Defender', 189),
+('Steve Cook', 'England', 'Nottingham Forest', 'Defender', 185),
+('Giulian Biancone', 'France', 'Nottingham Forest', 'Defender', 187),
+('Moussa Niakhat�', 'Senegal', 'Nottingham Forest', 'Defender', 190),
+('Omar Richards', 'England', 'Nottingham Forest', 'Defender', 174),
+('Neco Williams', 'Wales', 'Nottingham Forest', 'Defender', 183),
+('Harry Toffolo', 'England', 'Nottingham Forest', 'Defender', 183),
+('Zach Abbott', 'England', 'Nottingham Forest', 'Defender', NULL),
+('Renan Lodi', 'Brazil', 'Nottingham Forest', 'Defender', 173),
+('Willy Boly', 'Cote D�Ivoire', 'Nottingham Forest', 'Defender', 195),
+('Serge Aurier', 'Cote D�Ivoire', 'Nottingham Forest', 'Defender', 176),
+('Felipe', 'Brazil', 'Nottingham Forest', 'Defender', 190),
+('Jack Colback', 'England', 'Nottingham Forest', 'Midfielder', 177),
+('Caf�', 'Portugal', 'Nottingham Forest', 'Midfielder', 185),
+('Ryan Yates', 'England', 'Nottingham Forest', 'Midfielder', 190),
+('Harry Arter', 'Ireland', 'Nottingham Forest', 'Midfielder', 176),
+('Lewis O�Brien', 'England', 'Nottingham Forest', 'Midfielder', 173),
+('Jesse Lingard', 'England', 'Nottingham Forest', 'Midfielder', 175),
+('Oliver Hammond', 'Wales', 'Nottingham Forest', 'Midfielder', NULL),
+('Cheikhou Kouyat�', 'Senegal', 'Nottingham Forest', 'Midfielder', 189),
+('Remo Freuler', 'Switzerland', 'Nottingham Forest', 'Midfielder', 181),
+('Morgan Gibbs-White', 'England', 'Nottingham Forest', 'Midfielder', 171),
+('Alexander Gibson-Hammond', 'England', 'Nottingham Forest', 'Midfielder', NULL),
+('Orel Mangala', 'Belgium', 'Nottingham Forest', 'Midfielder', 178),
+('Gustavo Scarpa', 'Brazil', 'Nottingham Forest', 'Midfielder', 176),
+('Danilo', 'Brazil', 'Nottingham Forest', 'Midfielder', 176),
+('Jonjo Shelvey', 'England', 'Nottingham Forest', 'Midfielder', 184),
+('Sam Surridge', 'England', 'Nottingham Forest', 'Forward', 191),
+('Alex Mighten', 'England', 'Nottingham Forest', 'Forward', NULL),
+('Brennan Johnson', 'Wales', 'Nottingham Forest', 'Forward', 179),
+('Taiwo Awoniyi', 'Nigeria', 'Nottingham Forest', 'Forward', 183),
+('Lyle Taylor', 'Montserrat', 'Nottingham Forest', 'Forward', 188),
+('Emmanuel Dennis', 'Nigeria', 'Nottingham Forest', 'Forward', 175),
+('Detlef Esapa Osong', 'England', 'Nottingham Forest', 'Forward', NULL),
+('Alex Mighten', 'England', 'Nottingham Forest', 'Forward', NULL),
+('Chris Wood', 'New Zealand', 'Nottingham Forest', 'Forward', 191),
+('Andr� Ayew', 'Ghana', 'Nottingham Forest', 'Forward', 175)
+
+INSERT INTO PremierLeagueHeights2223 VALUES -- Add additional values to table
+('Alex McCarthy', 'England', 'Southampton', 'Goalkeeper', 193),
+('Willy Caballero', 'Argentina', 'Southampton', 'Goalkeeper', 186),
+('Gavin Bazunu', 'Ireland', 'Southampton', 'Goalkeeper', 189),
+('Kyle Walker-Peters', 'England', 'Southampton', 'Defender', 173),
+('Lyanco', 'Brazil', 'Southampton', 'Defender', 187),
+('Romain Perraud', 'France', 'Southampton', 'Defender', 173),
+('Tino Livramento', 'England', 'Southampton', 'Defender', NULL),
+('Mohammed Salisu', 'Ghana', 'Southampton', 'Defender', 191),
+('Jan Bednarek', 'Poland', 'Southampton', 'Defender', 189),
+('Armel Bella-Kotchap', 'Germany', 'Southampton', 'Defender', 190),
+('Duje Caleta-Car', 'Croatia', 'Southampton', 'Defender', 192),
+('Juan Larios', 'Spain', 'Southampton', 'Defender', NULL),
+('James Bree', 'England', 'Southampton', 'Defender', 172),
+('James Ward-Prowse', 'England', 'Southampton', 'Midfielder', 173),
+('Stuart Armstrong', 'Scotland', 'Southampton', 'Midfielder', 183),
+('Moussa Djenepo', 'Mali', 'Southampton', 'Midfielder', 177),
+('Mohamed Elyounoussi', 'Norway', 'Southampton', 'Midfielder', 178),
+('Ibrahima Diallo', 'France', 'Southampton', 'Midfielder', 179),
+('Rom�o Lavia', 'Belgium', 'Southampton', 'Midfielder', NULL),
+('Joe Aribo', 'Nigeria', 'Southampton', 'Midfielder', 183),
+('Diamond Edwards', 'England', 'Southampton', 'Midfielder', NULL),
+('Ainsley Maitland-Niles', 'England', 'Southampton', 'Midfielder', 177),
+('Carlos Alcaraz', 'Argentina', 'Southampton', 'Midfielder', 176),
+('Kamaldeen Sulemana', 'Ghana', 'Southampton', 'Midfielder', 175),
+('Kamari Doyle', 'England', 'Southampton', 'Midfielder', NULL),
+('Adam Armstrong', 'England', 'Southampton', 'Forward', 174),
+('Che Adams', 'Scotland', 'Southampton', 'Forward', 175),
+('Theo Walcott', 'England', 'Southampton', 'Forward', 176),
+('S�kou Mara', 'France', 'Southampton', 'Forward', 184),
+('Dominic Ballard', 'England', 'Southampton', 'Forward', NULL),
+('Samuel Edozie', 'England', 'Southampton', 'Forward', NULL),
+('Jimmy Morgan', 'England', 'Southampton', 'Forward', NULL),
+('Mislav Orsic', 'Croatia', 'Southampton', 'Forward', 179),
+('Paul Onuachu', 'Nigeria', 'Southampton', 'Forward', 201),
+('Lukasz Fabianski', 'Poland', 'West Ham United', 'Goalkeeper', 190),
+('Alphonse Ar�ola', 'France', 'West Ham United', 'Goalkeeper', 195),
+('Kriszti�n Hegyi', 'Hungary', 'West Ham United', 'Goalkeeper', 193),
+('Joseph Anang', 'England', 'West Ham United', 'Goalkeeper', NULL),
+('Aaron Cresswell', 'England', 'West Ham United', 'Defender', 170),
+('Kurt Zouma', 'France', 'West Ham United', 'Defender', 190),
+('Vladim�r Coufal', 'Czech Republic', 'West Ham United', 'Defender', 179),
+('Angelo Ogbonna', 'Italy', 'West Ham United', 'Defender', 191),
+('Ben Johnson', 'England', 'West Ham United', 'Defender', 175),
+('Nayef Aguerd', 'Morocco', 'West Ham United', 'Defender', 190),
+('Thilo Kehrer', 'Germany', 'West Ham United', 'Defender', 186),
+('Jamal Baptiste', 'England', 'West Ham United', 'Defender', NULL),
+('Emerson', 'Italy', 'West Ham United', 'Defender', 176),
+('Regan Clayton', 'England', 'West Ham United', 'Defender', NULL),
+('Michael Forbes', 'Northern Ireland', 'West Ham United', 'Defender', NULL),
+('Luiz�o', 'Brazil', 'West Ham United', 'Defender', 187),
+('Levi Laing', 'England', 'West Ham United', 'Defender', NULL),
+('Pablo Fornals', 'Spain', 'West Ham United', 'Midfielder', 178),
+('Manuel Lanzini', 'Argentina', 'West Ham United', 'Midfielder', 167),
+('Tom�s Soucek', 'Czech Republic', 'West Ham United', 'Midfielder', 192),
+('Declan Rice', 'England', 'West Ham United', 'Midfielder', 185),
+('Flynn Downes', 'England', 'West Ham United', 'Midfielder', 173),
+('Kamarai Simon-Swyer', 'England', 'West Ham United', 'Midfielder', NULL),
+('Lucas Paquet�', 'Brazil', 'West Ham United', 'Midfielder', 180),
+('Freddie Potts', 'England', 'West Ham United', 'Midfielder', NULL),
+('Oliver Scarles', 'England', 'West Ham United', 'Midfielder', NULL),
+('Keenan Appiah-Forson', 'England', 'West Ham United', 'Midfielder', NULL),
+('Kaelan Casey', 'England', 'West Ham United', 'Midfielder', NULL),
+('Lewis Orford', 'England', 'West Ham United', 'Midfielder', NULL),
+('Michail Antonio', 'Jamaica', 'West Ham United', 'Forward', 180),
+('Jarrod Bowen', 'England', 'West Ham United', 'Forward', 175),
+('Sa�d Benrahma', 'Algeria', 'West Ham United', 'Forward', 172),
+('Gianluca Scamacca', 'Italy', 'West Ham United', 'Forward', 196),
+('Maxwel Cornet', 'Cote D�Ivoire', 'West Ham United', 'Forward', 179),
+('Divin Mubama', 'England', 'West Ham United', 'Forward', NULL),
+('Danny Ings', 'England', 'West Ham United', 'Forward', 178),
+('Mark Travers', 'Ireland', 'Bournemouth', 'Goalkeeper', 191),
+('Neto', 'Brazil', 'Bournemouth', 'Goalkeeper', 190),
+('Cameron Plain', 'England', 'Bournemouth', 'Goalkeeper', NULL),
+('Darren Randolph', 'Ireland', 'Bournemouth', 'Goalkeeper', 188),
+('Lloyd Kelly', 'England', 'Bournemouth', 'Defender', 178),
+('Chris Mepham', 'Wales', 'Bournemouth', 'Defender', 193),
+('Adam Smith', 'England', 'Bournemouth', 'Defender', 180),
+('Jack Stacey', 'England', 'Bournemouth', 'Defender', 180),
+('Jordan Zemura', 'Zimbabwe', 'Bournemouth', 'Defender', 173),
+('Ryan Fredericks', 'England', 'Bournemouth', 'Defender', 181),
+('Marcos Senesi', 'Argentina', 'Bournemouth', 'Defender', 185),
+('Ben Greenwood', 'Ireland', 'Bournemouth', 'Defender', NULL),
+('Jack Stephens', 'England', 'Bournemouth', 'Defender', 185),
+('Mat�as Vi�a', 'Uruguay', 'Bournemouth', 'Defender', 175),
+('Illia Zabarnyi', 'Ukraine', 'Bournemouth', 'Defender', 189),
+('Max Kinsey-Wellings', 'England', 'Bournemouth', 'Defender', NULL),
+('Lewis Cook', 'England', 'Bournemouth', 'Midfielder', 175),
+('David Brooks', 'Wales', 'Bournemouth', 'Midfielder', 173),
+('Jefferson Lerma', 'Colombia', 'Bournemouth', 'Midfielder', 179),
+('Ryan Christie', 'Scotland', 'Bournemouth', 'Midfielder', 178),
+('Junior Stanislas', 'England', 'Bournemouth', 'Midfielder', 183),
+('Philip Billing', 'Denmark', 'Bournemouth', 'Midfielder', 193),
+('Joe Rothwell', 'England', 'Bournemouth', 'Midfielder', 185),
+('Marcus Tavernier', 'England', 'Bournemouth', 'Midfielder', 178),
+('Jack Wadham', 'England', 'Bournemouth', 'Midfielder', 183),
+('Ferdinand Okoh', 'England', 'Bournemouth', 'Midfielder', NULL),
+('Dominic Sadi', 'England', 'Bournemouth', 'Midfielder', NULL),
+('Daniel Adu-Adjei', 'England', 'Bournemouth', 'Midfielder', NULL),
+('Hamed Traor�', 'Cote D�Ivoire', 'Bournemouth', 'Midfielder', 184),
+('Dominic Solanke', 'England', 'Bournemouth', 'Forward', 187),
+('Kieffer Moore', 'Wales', 'Bournemouth', 'Forward', 196),
+('Jaidon Anthony', 'England', 'Bournemouth', 'Forward', 183),
+('Michael Dacosta Gonzalez', 'Spain', 'Bournemouth', 'Forward', NULL),
+('Dango Ouattara', 'Burkina Faso', 'Bournemouth', 'Forward', 177),
+('Euan Pollock', 'England', 'Bournemouth', 'Forward', 173),
+('Antoine Semenyo', 'Ghana', 'Bournemouth', 'Forward', 185),
+('Jordan Pickford', 'England', 'Everton', 'Goalkeeper', 185),
+('Asmir Begovic', 'Bosnia & Herzegovina', 'Everton', 'Goalkeeper', 199),
+('Andy Lonergan', 'England', 'Everton', 'Goalkeeper', 192),
+('Billy Crellin', 'England', 'Everton', 'Goalkeeper', 185),
+('Nathan Patterson', 'Scotland', 'Everton', 'Defender', 189),
+('Mason Holgate', 'England', 'Everton', 'Defender', 184),
+('Michael Keane', 'England', 'Everton', 'Defender', 191),
+('Yerry Mina', 'Colombia', 'Everton', 'Defender', 195),
+('Vitaliy Mykolenko', 'Ukraine', 'Everton', 'Defender', 180),
+('Ben Godfrey', 'England', 'Everton', 'Defender', 183),
+('S�amus Coleman', 'Ireland', 'Everton', 'Defender', 177),
+('James Tarkowski', 'England', 'Everton', 'Defender', 185),
+('R�ben Vinagre', 'Portugal', 'Everton', 'Defender', 174),
+('Conor Coady', 'England', 'Everton', 'Defender', 185),
+('Reece Welch', 'England', 'Everton', 'Defender', NULL),
+('Kyle John', 'England', 'Everton', 'Defender', NULL),
+('Ish� Samuels-Smith', 'England', 'Everton', 'Defender', NULL),
+('Andros Townsend', 'England', 'Everton', 'Midfielder', 181),
+('Abdoulaye Doucour�', 'Mali', 'Everton', 'Midfielder', 184),
+('Tom Davies', 'England', 'Everton', 'Midfielder', 180),
+('Stanley Mills', 'England', 'Everton', 'Midfielder', NULL),
+('Amadou Onana', 'Belgium', 'Everton', 'Midfielder', 192),
+('Isaac Price', 'Northern Ireland', 'Everton', 'Midfielder', NULL),
+('Idrissa Gueye', 'Senegal', 'Everton', 'Midfielder', 174),
+('James Garner', 'England', 'Everton', 'Midfielder', 186),
+('Dominic Calvert-Lewin', 'England', 'Everton', 'Forward', 187),
+('Demarai Gray', 'England', 'Everton', 'Forward', 180),
+('Alex Iwobi', 'Nigeria', 'Everton', 'Forward', 180),
+('Ellis Simms', 'England', 'Everton', 'Forward', 191),
+('Dwight McNeil', 'England', 'Everton', 'Forward', 183),
+('Neal Maupay', 'France', 'Everton', 'Forward', 173),
+('Illan Meslier', 'France', 'Leeds United', 'Goalkeeper', 197),
+('Kristoffer Klaesson', 'Norway', 'Leeds United', 'Goalkeeper', 189),
+('Harry Christy', 'England', 'Leeds United', 'Goalkeeper', NULL),
+('Joel Robles', 'Spain', 'Leeds United', 'Goalkeeper', 195),
+('Dani van den Heuvel', 'Netherlands', 'Leeds United', 'Goalkeeper', NULL),
+('Luke Ayling', 'England', 'Leeds United', 'Defender', 185),
+('Junior Firpo', 'Spain', 'Leeds United', 'Defender', 184),
+('Robin Koch', 'Germany', 'Leeds United', 'Defender', 192),
+('Liam Cooper', 'Scotland', 'Leeds United', 'Defender', 180),
+('Pascal Struijk', 'Netherlands', 'Leeds United', 'Defender', 190),
+('Stuart Dallas', 'Northern Ireland', 'Leeds United', 'Defender', 183),
+('Rasmus Kristensen', 'Denmark', 'Leeds United', 'Defender', 187),
+('James Debayo', 'England', 'Leeds United', 'Defender', NULL),
+('Maximilian W�ber', 'Austria', 'Leeds United', 'Defender', 188),
+('Kris Moore', 'England', 'Leeds United', 'Defender', NULL),
+('Diogo Monteiro', 'Portugal', 'Leeds United', 'Defender', 184),
+('Jeremiah Chilokoa-Mullen', 'Scotland', 'Leeds United', 'Defender', NULL),
+('Adam Forshaw', 'England', 'Leeds United', 'Midfielder', 174),
+('Jack Harrison', 'England', 'Leeds United', 'Midfielder', 175),
+('Crysencio Summerville', 'Netherlands', 'Leeds United', 'Midfielder', 174),
+('Brenden Aaronson', 'USA', 'Leeds United', 'Midfielder', 178),
+('Marc Roca', 'Spain', 'Leeds United', 'Midfielder', 184),
+('Darko Gyabi', 'England', 'Leeds United', 'Midfielder', 196),
+('Tyler Adams', 'USA', 'Leeds United', 'Midfielder', 173),
+('Archie Gray', 'England', 'Leeds United', 'Midfielder', NULL),
+('Amari Miller', 'England', 'Leeds United', 'Midfielder', 174),
+('Charlie Allen', 'Northern Ireland', 'Leeds United', 'Midfielder', NULL),
+('Joe Snowdon', 'England', 'Leeds United', 'Midfielder', NULL),
+('Weston McKennie', 'USA', 'Leeds United', 'Midfielder', 183),
+('Patrick Bamford', 'England', 'Leeds United', 'Forward', 185),
+('Rodrigo', 'Spain', 'Leeds United', 'Forward', 182),
+('Sam Greenwood', 'England', 'Leeds United', 'Forward', 185),
+('Luis Sinisterra', 'Colombia', 'Leeds United', 'Forward', 172),
+('Sonny Perkins', 'England', 'Leeds United', 'Forward', 178),
+('Wilfried Gnonto', 'Italy', 'Leeds United', 'Forward', 172),
+('Mateo Joseph', 'Spain', 'Leeds United', 'Forward', NULL),
+('Georginio Rutter', 'France', 'Leeds United', 'Forward', 182)
+
+-- Review table
+SELECT *
+FROM PremierLeagueHeights2223
+WHERE Height IS NOT NULL
+ORDER BY Team
+
+-- Add a new column
+ALTER TABLE PremierLeagueHeights2223
+ADD Final_Classification int
+
+-- Update new column
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 1
+WHERE Team = 'Manchester City'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 2
+WHERE Team = 'Arsenal'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 3
+WHERE Team = 'Manchester United'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 4
+WHERE Team = 'Newcastle United'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 5
+WHERE Team = 'Liverpool'
+
+SELECT *
+FROM PremierLeagueHeights2223
+WHERE Team LIKE '%Brighton%' -- To confirm the full name of the Brighton team
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 6
+WHERE Team = 'Brighton and Hove Albion'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 7
+WHERE Team = 'Aston Villa'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 8
+WHERE Team = 'Tottenham Hotspur'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 9
+WHERE Team = 'Brentford'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 10
+WHERE Team = 'Fulham'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 11
+WHERE Team = 'Crystal Palace'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 12
+WHERE Team = 'Chelsea'
+
+SELECT *
+FROM PremierLeagueHeights2223
+WHERE Team LIKE '%Wolverhampton%' -- To confirm the full name of the Wolverhampton team
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 13
+WHERE Team = 'Wolverhampton Wanderers'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 14
+WHERE Team = 'West Ham United'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 15
+WHERE Team = 'Bournemouth'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 16
+WHERE Team = 'Nottingham Forest'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 17
+WHERE Team = 'Everton'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 18
+WHERE Team = 'Leicester City'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 19
+WHERE Team = 'Leeds United'
+
+UPDATE PremierLeagueHeights2223
+SET Final_Classification = 20
+WHERE Team = 'Southampton'
+
+-- Update a column name
+EXEC sp_rename 'PremierLeagueHeights2223.Height', 'Height_cm', 'COLUMN';
+
+-- Review table with new column
+-- Ordered by Final_Classification in ascendent order
+SELECT *
+FROM PremierLeagueHeights2223
+WHERE Height_cm IS NOT NULL
+ORDER BY Final_Classification
+
+-- DESCRIPTIVE STATISTICS
+-- Average height in the league
+SELECT
+	AVG(Height_cm) AS Avg_Height_cm_league
+FROM PremierLeagueHeights2223
+WHERE Height_cm IS NOT NULL
+
+-- Average height by team, ordered by height in descendent order
+SELECT
+	Team,
+	AVG(Height_cm) AS Avg_Height_cm_team
+FROM PremierLeagueHeights2223
+WHERE Height_cm IS NOT NULL
+GROUP BY Team
+ORDER BY Team
+
+-- Average height by position, ordered by height in descendent order
+SELECT
+	Position,
+	AVG(Height_cm) AS Avg_Height_cm_position
+FROM PremierLeagueHeights2223
+WHERE Height_cm IS NOT NULL
+GROUP BY Position
+ORDER BY Position
+
+-- Min and Max height in the league
+SELECT
+	MIN(Height_cm) AS Min_Height_cm_league,
+	MAX(Height_cm) AS Max_Height_cm_league
+FROM PremierLeagueHeights2223
+WHERE Height_cm IS NOT NULL
+
+-- Min and Max height by team, ordered by height in descendent order
+SELECT
+	Team,
+	MIN(Height_cm) AS Min_Height_cm_team,
+	MAX(Height_cm) AS Max_Height_cm_team
+FROM PremierLeagueHeights2223
+WHERE Height_cm IS NOT NULL
+GROUP BY Team
+ORDER BY Team
+
+-- Min and Max height by position, ordered by height in descendent order
+SELECT
+	Position,
+	MIN(Height_cm) AS Min_Height_cm_position,
+	MAX(Height_cm) AS Max_Height_cm_position
+FROM PremierLeagueHeights2223
+WHERE Height_cm IS NOT NULL
+GROUP BY Position
+ORDER BY Position
